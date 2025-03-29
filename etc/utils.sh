@@ -172,7 +172,7 @@ apply_patches() {
     java -jar revanced-cli*.jar patch \
         --patches patches*.rvp \
         "${excludePatches[@]}" "${includePatches[@]}" \
-        --out "$name+new-v$version.apk" \
+        --out "$name-new-v$version.apk" \
         "$name-v$version.apk"
     rm "$name-v$version.apk"
     unset excludePatches includePatches version
@@ -196,7 +196,7 @@ EOF
     releaseData=$(jq -n \
       --arg tag_name "$tagName" \
       --arg target_commitish "main" \
-      --arg name "Youtube Premium $tagName" \
+      --arg name "Youtube Free $tagName" \
       --arg body "$body" \
       '{ tag_name: $tag_name, target_commitish: $target_commitish, name: $name, body: $body }')
 }
@@ -207,7 +207,7 @@ create_github_release() {
     authorization="Authorization: token $GITHUB_TOKEN" 
     apiReleases="https://api.github.com/repos/$GITHUB_REPOSITORY/releases"
     uploadRelease="https://uploads.github.com/repos/$GITHUB_REPOSITORY/releases"
-    apkFilePath=$(find . -type f -name "$name+new*.apk")
+    apkFilePath=$(find . -type f -name "$name-new*.apk")
     apkFileName=$(basename "$apkFilePath")
     patchver=$(ls -1 patches*.rvp | grep -oP '\d+(\.\d+)+')
     cliver=$(ls -1 revanced-cli*.jar | grep -oP '\d+(\.\d+)+')
