@@ -7,7 +7,7 @@ on:
     
 jobs:
   build:
-    name: Tìm bản vá hiện có
+    name: Chạy Hệ điều hành
     permissions: write-all
     runs-on: ubuntu-latest
     env:
