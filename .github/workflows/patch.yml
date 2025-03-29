@@ -1,4 +1,4 @@
-name: Premium YouTube
+name: Free YouTube
 on:
   push:
   schedule:
@@ -7,14 +7,14 @@ on:
     
 jobs:
   build:
-    name: Patch YouTube Premium
+    name: Tìm bản vá hiện có
     permissions: write-all
     runs-on: ubuntu-latest
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       
     steps:
-    - name: Checkout Repository
+    - name: Kiểm nguồn
       uses: actions/checkout@v4  
 
  #   - name: Cài Java Mới nhất
@@ -23,7 +23,7 @@ jobs:
     #    distribution: 'temurin' # Temurin là nhà phân phối JDK phổ biến
      #   java-version: '>=17 <30' # Thay bằng phiên bản bạn cần, ví dụ: 11, 8
     #    check-latest: true
-    - name: Vá YouTube Vip
+    - name: Chạy file vá
       run: bash revanced.sh
              
     - name: Xoá Công việc
