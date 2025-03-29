@@ -1,0 +1,35 @@
+name: Premium YouTube
+on:
+  push:
+  schedule:
+    - cron: "0 2 * * *"
+  workflow_dispatch:
+    
+jobs:
+  build:
+    name: Patch YouTube Premium
+    permissions: write-all
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4  
+
+ #   - name: Cài Java Mới nhất
+  #    uses: actions/setup-java@v4
+   #   with:
+    #    distribution: 'temurin' # Temurin là nhà phân phối JDK phổ biến
+     #   java-version: '>=17 <30' # Thay bằng phiên bản bạn cần, ví dụ: 11, 8
+    #    check-latest: true
+    - name: Vá YouTube Vip
+      run: bash revanced.sh
+             
+    - name: Xoá Công việc
+      uses: Mattraks/delete-workflow-runs@v2
+      with:
+        token: ${{ github.token }}
+        repository: ${{ github.repository }}
+        retain_days: 0
+        keep_minimum_runs: 1
