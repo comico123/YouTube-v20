@@ -5,4 +5,4 @@
 
 ### Trạng thái Github Actions ở dưới này
 
-[![YouTube Premium](https://github.com/comico123/YouTube-v20/actions/workflows/patch.yml/badge.svg)](https://github.com/comico123/YouTube-v20/actions/workflows/patch.yml)
+[![YouTube Free](https://github.com/comico123/YouTube-v20/actions/workflows/patch.yml/badge.svg)](https://github.com/comico123/YouTube-v20/actions/workflows/patch.yml)
